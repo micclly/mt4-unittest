@@ -20,6 +20,8 @@ Installation
 Usage Sample
 --------------
 
+The code is same as [this](https://raw.github.com/micclly/mt4-unittest/master/MQL4/Samples/TestExpert.mq4). 
+
 ```cpp
 #property strict
 
@@ -99,5 +101,5 @@ void testGetMAArray_shoudReturnCoupleOfSMA()
     expected[1] = iMA(NULL, 0, paramMAPeriod, 0, MODE_SMA, PRICE_CLOSE, 5);
 
     unittest.assertEquals(__FUNCTION__, "MA array must contains a couple of SMA", expected, actual);
-
+}
 ```
