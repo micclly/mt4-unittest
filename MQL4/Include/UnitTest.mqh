@@ -146,13 +146,12 @@ void UnitTest::setFailure(string name,string message)
     UnitTestData* test = findTest(name);
 
     if (test != NULL) {
-        if (test.m_asserted) {
-            return;
-        }
-
         test.m_result = false;
         test.m_message = message;
         test.m_asserted = true;
+
+        m_failureTestCount += 1;
+        m_successTestCount = m_allTestCount - m_failureTestCount;
     }
 }
 
