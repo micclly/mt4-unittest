@@ -59,7 +59,6 @@ void runAllTests()
 {
     testGetMA_shoudReturnSMA();
     testGetMAArray_shoudReturnCoupleOfSMA();
-    testIsMAUp_shouldReturnTrue_MA0isLowerThanMA1();
 }
 
 void testGetMA_shoudReturnSMA()
