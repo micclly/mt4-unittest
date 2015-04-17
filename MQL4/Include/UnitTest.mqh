@@ -185,8 +185,8 @@ void UnitTest::assertEquals(string name, string message, bool expected, bool act
         setSuccess(name);
     }
     else {
-        string m;
-        StringConcatenate(m, message, ": expected is <", expected, "> but <", actual, ">");
+        const string m = message + ": expected is <" + IntegerToString(expected) +
+            "> but <" + IntegerToString(actual) + ">";
         setFailure(name, m);
         Alert("Test failed: " + name + ": " + m);
     }
