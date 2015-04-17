@@ -168,8 +168,9 @@ void UnitTest::printSummary(void)
         }
     }
 
-    double successPercent = 100.0 * m_successTestCount / m_allTestCount;
-    double failurePrcent = 100.0 * m_failureTestCount / m_allTestCount;
+    // If m_allTestCount == 0, set to 1 to prevent divzero error
+    double successPercent = 100.0 * m_successTestCount / (m_allTestCount || 1);
+    double failurePrcent = 100.0 * m_failureTestCount / (m_allTestCount || 1);
 
     Print("");
     PrintFormat("  Total: %d, Success: %d (%.2f%%), Failure: %d (%.2f%%)",
@@ -184,8 +185,8 @@ void UnitTest::assertEquals(string name, string message, bool expected, bool act
         setSuccess(name);
     }
     else {
-        string m;
-        StringConcatenate(m, message, ": expected is <", expected, "> but <", actual, ">");
+        const string m = message + ": expected is <" + IntegerToString(expected) +
+            "> but <" + IntegerToString(actual) + ">";
         setFailure(name, m);
         Alert("Test failed: " + name + ": " + m);
     }
