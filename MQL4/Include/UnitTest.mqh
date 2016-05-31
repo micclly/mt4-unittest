@@ -11,7 +11,7 @@
 #include <Object.mqh>
 #include <Arrays/List.mqh>
 
-class UnitTestData : CObject
+class UnitTestData : public CObject
 {
 public:
     string m_name;
